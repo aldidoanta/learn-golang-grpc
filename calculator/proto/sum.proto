@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/aldidoanta/learn-golang-grpc/calculator/proto";
+
+message SumRequest {
+    int32 firstInt = 1;
+    int32 secondInt = 2;
+}
+
+message SumResponse {
+    int32 sum = 1;
+}
