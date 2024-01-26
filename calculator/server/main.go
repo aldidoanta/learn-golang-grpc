@@ -23,7 +23,7 @@ func main() {
 	log.Printf("Listening on address %v.\n", address)
 
 	s := grpc.NewServer()
-	pb.RegisterCalculatorServiceServer(s, Server{})
+	pb.RegisterCalculatorServiceServer(s, &Server{})
 
 	if err = s.Serve(listener); err != nil {
 		log.Fatalf("Failed to serve: %v.\n", err)

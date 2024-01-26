@@ -6,7 +6,7 @@ import (
 	pb "github.com/aldidoanta/learn-golang-grpc/calculator/proto"
 )
 
-func (s Server) GetPrimeFactors(in *pb.PrimeRequest, stream pb.CalculatorService_GetPrimeFactorsServer) error {
+func (s *Server) GetPrimeFactors(in *pb.PrimeRequest, stream pb.CalculatorService_GetPrimeFactorsServer) error {
 	log.Printf("GetPrimeFactors() was invoked with %v\n", in)
 
 	// the algorithm of prime factorization

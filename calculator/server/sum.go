@@ -7,7 +7,7 @@ import (
 	pb "github.com/aldidoanta/learn-golang-grpc/calculator/proto"
 )
 
-func (s Server) Sum(ctx context.Context, in *pb.SumRequest) (*pb.SumResponse, error) {
+func (s *Server) Sum(ctx context.Context, in *pb.SumRequest) (*pb.SumResponse, error) {
 	log.Printf("Sum function was invoked with %v\n", in)
 
 	return &pb.SumResponse{
