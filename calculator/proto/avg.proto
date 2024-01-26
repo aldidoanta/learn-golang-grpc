@@ -4,10 +4,10 @@ package calculator;
 
 option go_package = "github.com/aldidoanta/learn-golang-grpc/calculator/proto";
 
-message PrimeRequest {
+message AvgRequest {
     int32 number = 1;
 }
 
-message PrimeResponse {
-    int32 primeFactor = 1;
+message AvgResponse {
+    double average = 1;
 }

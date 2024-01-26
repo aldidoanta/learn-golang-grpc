@@ -4,10 +4,12 @@ package calculator;
 
 option go_package = "github.com/aldidoanta/learn-golang-grpc/calculator/proto";
 
+import "avg.proto";
 import "prime.proto";
 import "sum.proto";
 
 service CalculatorService {
     rpc Sum (SumRequest) returns (SumResponse);
     rpc GetPrimeFactors (PrimeRequest) returns (stream PrimeResponse);
+    rpc Avg (stream AvgRequest) returns (AvgResponse);
 }
