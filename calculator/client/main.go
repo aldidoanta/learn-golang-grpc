@@ -23,5 +23,6 @@ func main() {
 
 	// doSum(client)
 	// doGetPrimeFactors(client)
-	doAvg(client)
+	// doAvg(client)
+	doMax(client)
 }
