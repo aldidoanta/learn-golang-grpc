@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -24,5 +25,6 @@ func main() {
 	// doGreet(client)
 	// doGreetManyTimes(client)
 	// doLongGreet(client)
-	doGreetEveryone(client)
+	// doGreetEveryone(client)
+	doGreetWithDeadline(client, 1*time.Second)
 }
