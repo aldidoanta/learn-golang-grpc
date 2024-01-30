@@ -7,6 +7,7 @@ option go_package = "github.com/aldidoanta/learn-golang-grpc/calculator/proto";
 import "avg.proto";
 import "max.proto";
 import "prime.proto";
+import "sqrt.proto";
 import "sum.proto";
 
 service CalculatorService {
@@ -14,4 +15,5 @@ service CalculatorService {
     rpc GetPrimeFactors (PrimeRequest) returns (stream PrimeResponse);
     rpc Avg (stream AvgRequest) returns (AvgResponse);
     rpc Max (stream MaxRequest) returns (stream MaxResponse);
+    rpc Sqrt (SqrtRequest) returns (SqrtResponse);
 }

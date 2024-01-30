@@ -24,5 +24,6 @@ func main() {
 	// doSum(client)
 	// doGetPrimeFactors(client)
 	// doAvg(client)
-	doMax(client)
+	// doMax(client)
+	doSqrt(client, -2)
 }
