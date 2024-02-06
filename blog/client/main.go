@@ -23,5 +23,6 @@ func main() {
 
 	id := createBlog(client)
 	readBlog(client, id)
-	readBlog(client, "non-existing-id")
+	// readBlog(client, "non-existing-id")
+	updateBlog(client, id)
 }
