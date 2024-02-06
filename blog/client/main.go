@@ -26,4 +26,5 @@ func main() {
 	// readBlog(client, "non-existing-id")
 	updateBlog(client, id)
 	listBlog(client)
+	deleteBlog(client, id)
 }

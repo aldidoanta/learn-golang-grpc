@@ -13,8 +13,8 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-func (s *Server) UpdateBlog(ctx context.Context, in *pb.Blog) (*emptypb.Empty, error) {
-	log.Printf("UpdateBlog() was called with %v\n", in)
+func (s *Server) DeleteBlog(ctx context.Context, in *pb.BlogId) (*emptypb.Empty, error) {
+	log.Printf("DeleteBlog() was called with %v\n", in)
 
 	// parse ID from request
 	oid, err := primitive.ObjectIDFromHex(in.Id)
@@ -26,30 +26,23 @@ func (s *Server) UpdateBlog(ctx context.Context, in *pb.Blog) (*emptypb.Empty, e
 		)
 	}
 
-	// prepare the new Blog document
-	data := &BlogItem{
-		AuthorId: in.AuthorId,
-		Title:    in.Title,
-		Content:  in.Content,
-	}
+	// delete a document, applying a filter by ID
 	filter := bson.M{"_id": oid}
-	update := bson.M{"$set": data}
-	res, err := collection.UpdateOne(
+	res, err := collection.DeleteOne(
 		ctx,
 		filter,
-		update,
 	)
 
 	// general error handling
 	if err != nil {
 		return nil, status.Errorf(
 			codes.Internal,
-			"Could not update",
+			"Cannot delete object in MongoDB",
 		)
 	}
 
 	// error handling if ID is not found
-	if res.MatchedCount == 0 {
+	if res.DeletedCount == 0 {
 		return nil, status.Errorf(
 			codes.NotFound,
 			fmt.Sprintf("Cannot find blog with ID %s\n", in.Id),

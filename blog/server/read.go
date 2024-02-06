@@ -20,7 +20,7 @@ func (s *Server) ReadBlog(ctx context.Context, in *pb.BlogId) (*pb.Blog, error) 
 	if err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
-			"Cannor parse ID",
+			"Cannot parse ID",
 		)
 	}
 
